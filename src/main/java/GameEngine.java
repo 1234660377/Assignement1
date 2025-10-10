@@ -38,6 +38,8 @@ public class GameEngine {
             gameWon = true;
             return new GuessResult(true, "Correct! You guessed it in " + attempts + " attempts.", attempts);
 
+        } else if (attempts >= MAX_ATTEMPTS) {
+            gameOver = true;
         } else {
             String hint = getHint(guess);
             GuessResult result;
@@ -50,6 +52,8 @@ public class GameEngine {
             return result;
 
         }
+
+        return null;
     }
 
     public void reset() {

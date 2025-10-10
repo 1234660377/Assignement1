@@ -69,6 +69,7 @@ public class GameEngineTest {
 <<<<<<< HEAD
 
     @Test
+<<<<<<< HEAD
     public void testQuitWithNegativeNumber() {
         engine.setTarget(50);
         GuessResult result = engine.makeGuess(-1);
@@ -82,6 +83,59 @@ public class GameEngineTest {
         engine.setTarget(50);
         engine.makeGuess(-1);
         assertEquals(0, engine.getAttempts());
+=======
+    public void testMaxAttemptsReached() {
+        engine.setTarget(50);
+        for (int i = 0; i < 10; i++) {
+            engine.makeGuess(1);
+        }
+        assertTrue(engine.isGameOver());
+        assertFalse(engine.isGameWon());
+    }
+
+    @Test
+    public void testRemainingAttemptsDisplayed() {
+        engine.setTarget(50);
+        GuessResult result = engine.makeGuess(1);
+        assertTrue(result.getMessage().contains("9 attempts remaining"));
+    }
+
+    @Test
+    public void testGameOverMessage() {
+        engine.setTarget(50);
+        GuessResult result = null;
+        for (int i = 0; i < 10; i++) {
+            result = engine.makeGuess(1);
+        }
+        assertTrue(result.getMessage().contains("Game Over"));
+        assertTrue(result.getMessage().contains("50"));
+    }
+
+    @Test
+    public void testWinBeforeMaxAttempts() {
+        engine.setTarget(50);
+        for (int i = 0; i < 5; i++) {
+            engine.makeGuess(1);
+        }
+        GuessResult result = engine.makeGuess(50);
+        assertTrue(engine.isGameWon());
+        assertFalse(engine.isGameOver());
+    }
+
+    @Test
+    public void testMaxAttemptsConstant() {
+        assertEquals(10, engine.getMaxAttempts());
+    }
+
+    @Test
+    public void testResetClearsGameOver() {
+        engine.setTarget(50);
+        for (int i = 0; i < 10; i++) {
+            engine.makeGuess(1);
+        }
+        engine.reset();
+        assertFalse(engine.isGameOver());
+>>>>>>> e367776 (Implement max attempts logic and game over condition)
     }
 =======
 >>>>>>> f010db6 (Initial Number guessing game)
