@@ -65,6 +65,7 @@ public class GameEngineTest {
         assertEquals(1, engine.getMin());
         assertEquals(100, engine.getMax());
     }
+<<<<<<< HEAD
 
     @Test
     public void testQuitWithNegativeNumber() {
@@ -81,4 +82,6 @@ public class GameEngineTest {
         engine.makeGuess(-1);
         assertEquals(0, engine.getAttempts());
     }
+=======
+>>>>>>> f010db6 (Initial Number guessing game)
 }

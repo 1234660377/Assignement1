@@ -6,6 +6,7 @@ public class Main {
 
 
 
+
         System.out.println("Good luck!");
         // Version 1.1 - Added quit functionality
         Scanner scanner = new Scanner(System.in);
@@ -28,6 +29,7 @@ public class Main {
                 playAgain = false;
             }
         }
+
 
         System.out.println("Thanks for playing!");
     }
